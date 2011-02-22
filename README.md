@@ -11,7 +11,7 @@ INSTALLATION
 ============
 
 % git clone git://github.com/sck/zhongwen-zhuyin.git
-zhonwen-zhuyin % wget https://www.github.com/downloads/sck/zhongwen-zhuyin/data.zip
+zhonwen-zhuyin % wget --no-check-certificate https://github.com/downloads/sck/zhongwen-zhuyin/data.zip
 zhonwen-zhuyin % unzip data.zip
 
 Adding to chrome:

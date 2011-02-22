@@ -816,6 +816,9 @@ var zhongwenContent = {
             var p = this.pinyin(e[3], showToneColors, pinyinClass);
             html += p[0];
 
+            var p = this.zhuyin(e[3], "");
+            html += "&nbsp;&nbsp;" + p[0];
+
             // Definition
 
             var defClass = 'w-def';
@@ -885,6 +888,48 @@ var zhongwenContent = {
         }
 
         return [html, text];
+    },
+    zhuyinInitials: {
+      b: "ㄅ", p: "ㄆ", m: "ㄇ", f: "ㄈ", d: "ㄉ", t: "ㄊ", n: "ㄋ", l: "ㄌ",
+      g: "ㄍ", k: "ㄎ", h: "ㄏ", j: "ㄐ", q: "ㄑ", x: "ㄒ",
+      zh: "ㄓ", ch: "ㄔ",  sh: "ㄕ", shi: "ㄕ", ri: "ㄖ", r: "ㄖ", z: "ㄗ", 
+      c:"ㄘ", s:"ㄙ", w: "ㄨ", wu: "ㄨ", xu: "ㄒㄩ", xio: "ㄒㄩ", 
+      xue: "ㄒㄩㄝ", 
+    },
+    zhuyinMedials: {
+      i: "ㄧ", yi: "ㄧ", y: "ㄧ", u: "ㄨ", wu: "ㄨ", "ü": "ㄩ", yu: "ㄩ",
+      ie: "ㄧㄝ", ye: "ㄧㄝ", "üe": "ㄩㄝ"
+    },
+    zhuyinFinals: { a: "ㄚ", o: "ㄛ",  e: "ㄜ",  ue: "ㄝ", 
+      ai: "ㄞ", ei: "ㄟ", i: "ㄟ", ao: "ㄠ", ou: "ㄡ", u: "ㄡ", an:"ㄢ", 
+      n: "ㄣ", en: "ㄣ", ang: "ㄤ", eng: "ㄥ", ng: "ㄥ", er: "ㄦ", 
+      ong: "ㄨㄥ"
+    },
+    zhuyinTones: ["", "ˊ", "ˇ", "ˋ", "˙"],
+    zhOk: function(s, d) {
+      if (d[s] != undefined) { this.html += d[s]; return s.length }
+      return 0;
+    },
+    zhuyin: function(words, zhuYinClass) {
+      this.html = '';
+      var a = words.split(/\s/);
+      for (var i = 0; i < a.length; i++) {
+        var w = a[i].toLowerCase(); var l = w.length
+        if (i > 0) {
+          this.html += '&nbsp;'
+        }
+        var tone = w[l - 1] - 1
+        l -= 1
+        var c = 0;
+        c += this.zhOk(w[0] + w[1] + w[2], this.zhuyinInitials) ||
+            this.zhOk(w[0] + w[1], this.zhuyinInitials) ||
+            this.zhOk(w[0], this.zhuyinInitials)
+        c += this.zhOk(w.substr(c, 2), this.zhuyinMedials) ||
+          this.zhOk(w.substr(c, 1), this.zhuyinMedials)
+        this.zhOk(w.substr(c, l - c), this.zhuyinFinals)
+        this.html += this.zhuyinTones[tone]
+      }
+      return [this.html, ""]
     },
 
     pinyin: function(words, showToneColors, pinyinClass) {

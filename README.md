@@ -1,8 +1,7 @@
-Zhongwen-Zhunyin: A quick fork for adding zhnyin/zhongwen support to the
-zhongwen extension for chrome
+Zhongwen-Zhunyin: A quick fork for adding zhnyin/zhongwen support to the zhongwen extension for chrome
 ========================================================================
 
-![screen shot](screenshot.png)
+![screen shot](https://github.com/downloads/sck/zhongwen-zhuyin/screenshot.png)
 
 The original zhongwen extension is here:
 https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde

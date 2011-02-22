@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="dict.js"></script>
+        <script src="main.js"></script>
+        <script>
+            chrome.browserAction.onClicked.addListener(zhongwenMain.enableToggle);
+            chrome.tabs.onSelectionChanged.addListener(zhongwenMain.onTabSelect);
+            chrome.extension.onRequest.addListener(
+                function(request, sender, response) {
+                    switch(request.type) {
+                        case 'enable?':
+                            zhongwenMain.onTabSelect(sender.tab.id);
+                            break;
+                        case 'search':
+                            var e = zhongwenMain.search(request.text);
+                            response(e);
+                            break;
+                        case 'open':
+                            chrome.tabs.create({url: request.url});
+                        case 'copy':
+                            var txt = document.createElement('textarea');
+                            txt.style.position = "absolute";
+                            txt.style.left = "-100%";
+                            txt.value = request.data;
+                            document.body.appendChild(txt);
+                            txt.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(txt);
+                        default:
+                            // ignore
+                    }
+                });
+
+            function initStorage(key, defaultValue) {
+              var currentValue = localStorage[key];
+              if (!currentValue) {
+                localStorage[key] = defaultValue;
+                return true;
+              }
+              return false;
+            }
+
+            initStorage("popupcolor", "yellow");
+            initStorage("tonecolors", "yes");
+            initStorage("fontSize", "small");
+
+            zhongwenMain.config = {};
+            zhongwenMain.config.css = localStorage["popupcolor"];
+            zhongwenMain.config.tonecolors = localStorage["tonecolors"];
+            zhongwenMain.config.fontSize = localStorage["fontSize"]
+        </script>
+    </head>
+</html>

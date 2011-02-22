@@ -1,0 +1,21 @@
+{
+   "background_page": "background.html",
+   "browser_action": {
+      "default_icon": "images/zhongwen48.png",
+      "default_title": "Zhongwen+Zhuyin Chinese Popup Dictionary"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "description": "Chinese popup translator. Great tool for learning Chinese. Supports adding words to Skritter.",
+   "icons": {
+      "128": "images/zhongwen.png",
+      "48": "images/zhongwen48.png"
+   },
+   "name": "Zhongwen+Zhuyin : A Chinese-English Popup Dictionary",
+   "options_page": "options.html",
+   "permissions": [ "tabs" ],
+   "version": "2.0"
+}

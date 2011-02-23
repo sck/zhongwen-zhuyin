@@ -292,10 +292,10 @@ var zhongwenContent = {
                 this.altView = (this.altView + 1) % 3;
                 this.show(ev.currentTarget.zhongwen);
                 break;
-            case 67:        // c
-                // console.log("lastFound=" + this.lastFound);
-                this.copyToClipboard(this.getTexts());
-                break;
+            //case 67:        // c
+            //    // console.log("lastFound=" + this.lastFound);
+            //    this.copyToClipboard(this.getTexts());
+            //    break;
             case 66:        // b
                 var ofs = ev.currentTarget.zhongwen.uofs;
                 var tdata = ev.currentTarget.zhongwen;
@@ -892,9 +892,9 @@ var zhongwenContent = {
     zhuyinInitials: {
       b: "ㄅ", p: "ㄆ", m: "ㄇ", f: "ㄈ", d: "ㄉ", t: "ㄊ", n: "ㄋ", l: "ㄌ",
       g: "ㄍ", k: "ㄎ", h: "ㄏ", j: "ㄐ", q: "ㄑ", x: "ㄒ",
-      zh: "ㄓ", ch: "ㄔ",  sh: "ㄕ", shi: "ㄕ", ri: "ㄖ", r: "ㄖ", z: "ㄗ", 
-      c:"ㄘ", s:"ㄙ", w: "ㄨ", wu: "ㄨ", xu: "ㄒㄩ", xio: "ㄒㄩ", 
-      xue: "ㄒㄩㄝ", 
+      zh: "ㄓ", zhi: "ㄓ", ch: "ㄔ", chi: "ㄔ",  sh: "ㄕ", shi: "ㄕ", 
+      ri: "ㄖ", r: "ㄖ", z: "ㄗ", c:"ㄘ", ci:"ㄘ", s:"ㄙ", w: "ㄨ", 
+      wu: "ㄨ", xu: "ㄒㄩ", que: "ㄑㄩㄝ", xio: "ㄒㄩ", xue: "ㄒㄩㄝ", 
     },
     zhuyinMedials: {
       i: "ㄧ", yi: "ㄧ", y: "ㄧ", u: "ㄨ", wu: "ㄨ", "ü": "ㄩ", yu: "ㄩ",

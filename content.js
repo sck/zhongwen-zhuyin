@@ -895,6 +895,7 @@ var zhongwenContent = {
       zh: "ㄓ", zhi: "ㄓ", ch: "ㄔ", chi: "ㄔ",  sh: "ㄕ", shi: "ㄕ", 
       ri: "ㄖ", r: "ㄖ", z: "ㄗ", c:"ㄘ", ci:"ㄘ", s:"ㄙ", w: "ㄨ", 
       wu: "ㄨ", xu: "ㄒㄩ", que: "ㄑㄩㄝ", xio: "ㄒㄩ", xue: "ㄒㄩㄝ", 
+      yo: "ㄩ", qu: "ㄑㄩ"
     },
     zhuyinMedials: {
       i: "ㄧ", yi: "ㄧ", y: "ㄧ", u: "ㄨ", wu: "ㄨ", "ü": "ㄩ", yu: "ㄩ",
